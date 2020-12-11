@@ -1421,7 +1421,7 @@ screen and (-ms-high-contrast: none) {
 .slider-2 {
     padding-top: 7.5rem;
     padding-bottom: 7rem;
-    background: url('../images/testimonials-background.jpg') center center no-repeat;
+    background: url('../images/2.jpg') center center no-repeat;
     background-size: cover;
 }
 
@@ -1562,7 +1562,7 @@ screen and (-ms-high-contrast: none) {
 }
 
 .basic-4 .fa-stack:hover .fa-stack-2x {
-    color: #00a7bd;
+    color: #e28a18;
 }
 
 .basic-4 .fa-stack:hover .fa-stack-1x {
@@ -1679,7 +1679,7 @@ screen and (-ms-high-contrast: none) {
 }
 
 .footer .fa-stack:hover .fa-stack-2x {
-    color: #00a7bd;
+    color: #e28a18;
 }
 
 
@@ -1727,7 +1727,7 @@ a.back-to-top {
 }
 
 a:hover.back-to-top {
-    background-color: #00a7bd;
+    background-color: #e28a18;
 }
 
 
@@ -1996,7 +1996,7 @@ a:hover.back-to-top {
         color: #fff;
     }
     .navbar-custom.top-nav-collapse .fa-stack:hover .fa-stack-2x {
-        color: #00a7bd;
+        color: #e28a18;
     }
     .navbar-custom.top-nav-collapse .fa-stack:hover .fa-stack-1x {
         color: #fff;
@@ -2009,7 +2009,7 @@ a:hover.back-to-top {
     /* end of general styles */
     /* Header */
     .header {
-        background: url('../images/header-background.jpg') center center no-repeat;
+        background: url('../images/3.jpg') center center no-repeat;
         background-size: cover;
     }
     .header .header-content {
@@ -2110,7 +2110,7 @@ a:hover.back-to-top {
     /* end of contact */
     /* Extra Pages */
     .ex-header {
-        background: url('../images/ex-header-background.jpg') center center no-repeat;
+        background: url('../images/1.jpg') center center no-repeat;
         background-size: cover;
     }
     .ex-header h1 {
