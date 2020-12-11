@@ -28,15 +28,21 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 session_start();
                 $_SESSION['username']=$username;
                 $_SESSION['loggedin']=true;
-                header('location: welcome.php');
+                header('location:welcome.php');
             }
             else{
-                echo"invalid Credentials"; 
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Invalid Crendentials
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>'; 
             }
         }
     }
     else{
-        echo "invalid credentils ";
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Invalid Crendentials
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
     }
     
 
@@ -47,27 +53,45 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-</head>
-<body>
-<div class="container">
-<h1>Login To continue</h1>
-        <form action="login.php" method="POST">
-            <input type='text' name='username' id="first" placeholder="Enter Name"><br>
-            <input type="password" name='password' id='pass' placeholder="Enter password"><br>
-            
-            <button type="submit">Login</button>
-            <button type="submit"><a href="signup.php">Signup</a></button><br>
-            <a href="welcome.php">Go to welcome page</a>
-        </form>
 
-        
-    </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Login</title>
+  </head>
+  <body>
+      <div class="container my-5 "></div>
+      <div class="container col-md-5 my-5 shadow-lg p-3 mb-5 bg-white rounded">
+        <h1 class="text-center my-3">Login</h1>
+
+    <form action="login.php" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">UserName</label>
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     
-</body>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="text-center">
+  <button type="submit" class="btn btn-primary col-3 my-3">Login</button>
+  </div>
+</form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+  </body>
 </html>
