@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 session_start();
                 $_SESSION['username']=$username;
                 $_SESSION['loggedin']=true;
-                header('location:welcome.php');
+                header('location:../index.php');
             }
             else{
                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
