@@ -26,6 +26,7 @@ require 'loginsystem/partials/dbconnect.php';
           if($num > 0){ //this is to catch unknown error.
             while($fetch=mysqli_fetch_assoc($result)){
 
+              $pack=$fetch['pack'];
               
                if($fetch['username']==$username&&$fetch['password']==$password){
                       
@@ -33,17 +34,36 @@ require 'loginsystem/partials/dbconnect.php';
                       switch($username){
                         case "rnrathod":
                           session_start();
-                      $_SESSION['username']='rnrathod';
-                      $_SESSION['login'] = true;
-                          header("location:home.php");
+                            $_SESSION['username']='rnrathod';
+                             $_SESSION['login'] = true;
+                             header("location:home.php");
                         break;
 
                         case "$username":
                           session_start();
-                      $_SESSION['username']=$username;
-                      $_SESSION['login'] = true;
-                          header("location:user.php");
-                        break;
+                          $_SESSION['username']=$username;
+                          $_SESSION['login'] = true;
+                          $_SESSION['pack']=$pack;
+
+                            switch($pack){
+
+                              case ($pack=='starter'|| $pack=='Starter'):
+
+                                header("location:packages/starter.php");
+                                break;
+                              
+                              case ($pack=='medium'|| $pack=='Medium'):
+                                header("location:packages/medium.php");
+                                break;
+
+                                case ($pack=='complete'|| $pack=='Complete'):
+                                  header("location:packages/complete.php");
+                                  break;
+
+
+                            }
+
+                      break;
 
                       }
                   }
@@ -59,7 +79,9 @@ require 'loginsystem/partials/dbconnect.php';
     
     ?>
 <!-- Modal -->
-
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
 <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
  
   <div class="modal-dialog">
