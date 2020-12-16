@@ -9,19 +9,37 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
             $pack=$_POST['pack'];
+            $email=$_POST['email'];
+            $phone=$_POST['phone'];
+            $address=$_POST['address'];
+
+            $query="SELECT username FROM `requests` WHERE username='$username'";
+            $exists=mysqli_query($con,$query);
+
+            $num=mysqli_num_rows($exists);
+            
+
+            if($num>0){
+              echo "<script>alert('Username Already exists Please try Another Username');</script>";
+              
+            }
             
             // $message = "$lastname $firstname would like to request an account.";
-            $query = "INSERT INTO `requests` (`firstname`, `lastname`, `username`, `password`, `pack`, `date`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', current_timestamp());";
-            $result=mysqli_query($con,$query);
-            if($result){
-                echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }else{
-                echo "<script>alert('Unknown error occured.')</script>";
-            }
+            else{
+              $query = "INSERT INTO `requests` (`firstname`, `lastname`, `username`, `password`, `pack`, `date`,`email`, `phone`, `address`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', current_timestamp(), '$email', '$phone', '$address');";
+              $result=mysqli_query($con,$query);
+              if($result){
+                  echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
+              }else{
+                  echo "<script>alert('Unknown error occured.')</script>";
+              }
+          }
         }
     
     ?>
-
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
 <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -65,7 +83,24 @@
     <label for="exampleInputPack" class="form-label">Conform Pack Selected</label>
     <input type="text" name="pack" class="form-control" id="exampleInputPack">
   </div>
-  <div class="form-group checkbox">
+  
+
+    <div class="mb-3">
+    <label for="exampleInputemail" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="exampleInputemail">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPhone" class="form-label">Phone</label>
+    <input type="number" name="phone" class="form-control" id="exampleInputPhone">
+  </div>
+
+  <div class="mb-3">
+  <label for="exampleInputPhone" class="form-label">Address</label>
+  <textarea class="form-control" name="address" id="floatingTextarea2" style="height: 100px"></textarea>
+  
+</div>
+<div class="form-group checkbox">
                                 <input type="checkbox" id="rterms" value="Agreed-to-Terms" name="rterms" required>I agree with EBase's stated <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms & Conditions</a>
                                 <div class="help-block with-errors"></div>
                             </div>

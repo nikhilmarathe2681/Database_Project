@@ -2,7 +2,7 @@
     session_start(); //we need session for the log in thingy XD 
     require 'loginsystem/partials/dbconnect.php';
     if($_SESSION['login']!==true){
-        header('location:login.php');
+        header('location:index.php');
     }
 ?>
 <!doctype html>
@@ -88,6 +88,9 @@
                       <h1 class="jumbotron-heading">'. $fetch['username'] .'</h1>
                       <p class="card-text">I would Like to Create an Account In your Organisation</p>
                       <h3 class="jumbotron-heading">Pack Selected :-'. $fetch['pack'] .'</h3>
+                      <h5 class="jumbotron-heading"> Email :-'. $fetch['email'] .'</h5>
+                      <h5 class="jumbotron-heading"> Contact :-'. $fetch['phone'] .'</h5>
+                      <h5 class="jumbotron-heading"> Address :-'. $fetch['address'] .'</h5>
                       <p>
                         <a href="accept.php?id='.$fetch['id'].'" class="btn btn-success my-2" name="accept">Accept</a>
                         <a href="reject.php?id='.$fetch['id'].'" class="btn btn-danger my-2">Reject</a>

@@ -45,6 +45,7 @@ include "signup.php";
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
+    
     <link href="css/fontawesome-all.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
@@ -169,7 +170,7 @@ include "signup.php";
     <!-- end of header -->
     <!-- end of header -->
 
-
+   
     <div class="container text-center">
         <h3>About Us</h3>
         <p>Our database provider solution is high quality for many business and telemarketing activities. Not all database providing companies are transparent about their bulk database to generate excellent sales lead. Truecaller verified mobile number database
@@ -948,31 +949,12 @@ include "signup.php";
                 <div class="col-lg-6">
 
                     <!-- Contact Form -->
-                    <form id="contactForm" data-toggle="validator" data-focus="false">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
-                            <label class="label-control" for="cname">Name</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
-                            <label class="label-control" for="cemail">Email</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
-                            <label class="label-control" for="cmessage">Your message</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agree with Ebase's stated <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
-                        </div>
+                    <?php
 
-                    </form>
+                        require "contact.php";
+
+                        ?>
+                    
                     <!-- end of contact form -->
 
                 </div>
@@ -1074,9 +1056,8 @@ include "signup.php";
     <!-- end of copyright -->
     <!-- end of copyright -->
 
-
-    <!-- Scripts -->
-    <script src="js/jquery.min.js"></script>
+ <!-- Scripts -->
+ <script src="js/jquery.min.js"></script>
     <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script>
     <!-- Popper tooltip library for Bootstrap -->

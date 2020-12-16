@@ -12,7 +12,8 @@
             $lastname = $fetch['lastname'];
             $username = $fetch['username'];
             $password = $fetch['password'];
-            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`) VALUES ('$firstname', '$lastname', '$username', '$password');";
+            $pack=$fetch['pack'];
+            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`, `pack`) VALUES ('$firstname', '$lastname', '$username', '$password','$pack');";
             
             $result=mysqli_query($con,$query);
             if($result){
