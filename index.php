@@ -7,6 +7,10 @@ session_start();
 
 include "login.php";
 include "signup.php";
+include "personalSignup/startersignup.php";
+include "personalSignup/mediumsignup.php";
+include "personalSignup/completesignup.php";
+
 
 
 
@@ -476,7 +480,7 @@ include "signup.php";
                             <div class="card-subtitle">Just to see what can be achieved</div>
                             <hr class="cell-divide-hr">
                             <div class="price">
-                                <span class="currency">$</span><span class="value">199</span>
+                                <span class="currency">Rs</span><span class="value">199</span>
                                 <div class="frequency">monthly</div>
                             </div>
                             <hr class="cell-divide-hr">
@@ -503,7 +507,7 @@ include "signup.php";
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#signupmodal" style="color:black;">REQUEST</a>
+                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#startersignupmodal" style="color:black;">REQUEST</a>
                             </div>
                         </div>
                     </div>
@@ -517,7 +521,7 @@ include "signup.php";
                             <div class="card-subtitle">Very appropriate for the short term</div>
                             <hr class="cell-divide-hr">
                             <div class="price">
-                                <span class="currency">$</span><span class="value">299</span>
+                                <span class="currency">Rs</span><span class="value">299</span>
                                 <div class="frequency">monthly</div>
                             </div>
                             <hr class="cell-divide-hr">
@@ -544,7 +548,7 @@ include "signup.php";
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#signupmodal" style="color:black;" >REQUEST</a>
+                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#mediumsignupmodal" style="color:black;" >REQUEST</a>
                             </div>
                         </div>
                     </div>
@@ -561,7 +565,7 @@ include "signup.php";
                             <div class="card-subtitle">Must have for large companies</div>
                             <hr class="cell-divide-hr">
                             <div class="price">
-                                <span class="currency">$</span><span class="value">399</span>
+                                <span class="currency">Rs</span><span class="value">399</span>
                                 <div class="frequency">monthly</div>
                             </div>
                             <hr class="cell-divide-hr">
@@ -588,7 +592,7 @@ include "signup.php";
                                 </li>
                             </ul>
                             <div class="button-wrapper">
-                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#signupmodal" style="color:black;">REQUEST</a>
+                                <a class="btn-solid-reg page-scroll" data-bs-toggle="modal" data-bs-target="#completesignupmodal" style="color:black;">REQUEST</a>
                             </div>
                         </div>
                     </div>

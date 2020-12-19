@@ -7,6 +7,7 @@
         if($result){
             echo "Account has been rejected.";
             
+            
         }else{
             echo "Unknown error occured. Please try again.";
         }
