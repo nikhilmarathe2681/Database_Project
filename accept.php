@@ -30,10 +30,10 @@
                 //     $mail-> SMTPAuth=true;
                 //     $mail-> SMTPSecure='tls';
                 //     $mail->SMTPAuth=true;
-                //     $mail-> Username='rnrathod37@gmail.com';
-                //     $mail-> Password='Rnrathod@07';
+                //     $mail-> Username='';
+                //     $mail-> Password=;
 
-                //     $mail-> setFrom('rnrathod37@gmail.com');
+                //     $mail-> setFrom('');
                 //     $mail-> addAddress($email);
                 //     $mail-> isHTML(true);
 
