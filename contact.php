@@ -13,6 +13,31 @@ require 'loginsystem/partials/dbconnect.php';
 
             if($result){
                 echo "<script> alert('Your Message has been Submited We will contact You Very Soon'); </script>";
+                // require "PHPmailer/compr.php";
+
+                //     $mail= new PHPMailer(true);
+                //     $mail-> isSMTP(true);
+
+                //     $mail-> Host='smtp.gmail.com';
+                //     $mail-> Port=587;
+                //     $mail-> SMTPAuth=true;
+                //     $mail-> SMTPSecure='tls';
+                //     $mail->SMTPAuth=true;
+                //     $mail-> Username='rnrathod37@gmail.com';
+                //     $mail-> Password='Rnrathod@07';
+
+                //     $mail-> setFrom('rnrathod37@gmail.com');
+                //     $mail-> addAddress('rnrathod37@gmail.com');
+                //     $mail-> isHTML(true);
+
+                //     $mail-> Subject='Contact Request';
+                //     $mail-> Body='Hello I am '. $_POST['firstname'].' ,'.  $_POST['lastname'] .' <br> My Email is :- '.$_POST['email'].' <br> Message:- '.$_POST['message'];
+                //     $mail-> SMTPOptions= array('ssl'=>array(
+                    
+                //     'verify_peer'=>false,
+                //     'verify_peer_name'=>false,
+                //     'allow_self_signed'=>false
+                //     ));
             }
 
             else{

@@ -1,14 +1,14 @@
 <!-- Button trigger modal
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupmodal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#startersignupmodal">
   Launch demo modal
 </button> -->
 <?php
-        if((isset($_POST['signup']))){
+        if((isset($_POST['s']))){
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $pack=$_POST['pack'];
+            // $pack=$_POST['pack'];
             $email=$_POST['email'];
             $phone=$_POST['phone'];
             $address=$_POST['address'];
@@ -26,7 +26,7 @@
             
             // $message = "$lastname $firstname would like to request an account.";
             else{
-              $query = "INSERT INTO `requests` (`firstname`, `lastname`, `username`, `password`, `pack`, `date`,`email`, `phone`, `address`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', current_timestamp(), '$email', '$phone', '$address');";
+              $query = "INSERT INTO `requests` (`firstname`, `lastname`, `username`, `password`, `pack`, `date`,`email`, `phone`, `address`) VALUES ('$firstname', '$lastname', '$username', '$password', 'starter', current_timestamp(), '$email', '$phone', '$address');";
               $result=mysqli_query($con,$query);
               if($result){
                   echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
@@ -35,42 +35,42 @@
               }
           }
 
-  //         require "PHPmailer/compr.php";
+//           require "PHPmailer/compr.php";
 
-  // $mail= new PHPMailer(true);
-  // $mail-> isSMTP(true);
+//   $mail= new PHPMailer(true);
+//   $mail-> isSMTP(true);
 
-  // $mail-> Host='smtp.gmail.com';
-  // $mail-> Port=587;
-  // $mail-> SMTPAuth=true;
-  // $mail-> SMTPSecure='tls';
-  // $mail->SMTPAuth=true;
-  // $mail-> Username='rnrathod37@gmail.com';
-  // $mail-> Password='Rnrathod@07';
+//   $mail-> Host='smtp.gmail.com';
+//   $mail-> Port=587;
+//   $mail-> SMTPAuth=true;
+//   $mail-> SMTPSecure='tls';
+//   $mail->SMTPAuth=true;
+//   $mail-> Username='rnrathod37@gmail.com';
+//   $mail-> Password='Rnrathod@07';
 
-  // $mail-> setFrom('rnrathod37@gmail.com');
-  // $mail-> addAddress('rnrathod37@gmail.com');
-  // $mail-> isHTML(true);
+//   $mail-> setFrom('rnrathod37@gmail.com');
+//   $mail-> addAddress('rnrathod37@gmail.com');
+//   $mail-> isHTML(true);
 
-  // $mail-> Subject='Account Request';
-  // $mail-> Body='There is An New Account Request From'. $_POST['firstname'].' '.  $_POST['lastname'] .' For Pack :- '.$_POST['pack'];
-  // $mail-> SMTPOptions= array('ssl'=>array(
+//   $mail-> Subject='Account Request';
+//   $mail-> Body='There is An New Account Request From'. $_POST['firstname'].' '.  $_POST['lastname'] .' For Pack :- '.$_POST['pack'];
+//   $mail-> SMTPOptions= array('ssl'=>array(
   
-  // 'verify_peer'=>false,
-  // 'verify_peer_name'=>false,
-  // 'allow_self_signed'=>false
-  // ));
+//   'verify_peer'=>false,
+//   'verify_peer_name'=>false,
+//   'allow_self_signed'=>false
+//   ));
         }
     
     ?>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
-<div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodalLabel" aria-hidden="true">
+<div class="modal fade" id="startersignupmodal" tabindex="-1" aria-labelledby="startersignupmodalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="signupmodalLabel">Signup</h5>
+        <h5 class="modal-title" id="startersignupmodalLabel">Starter Pack Signup</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -94,7 +94,7 @@
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
   <label for="exampleInputPack" class="form-label">Select one Pack</label>
                                 <select class="form-control-select" id="rselect" required>
                                     <option class="select-option" value="" disabled selected>Interested in...</option>
@@ -103,11 +103,11 @@
                                     <option class="select-option" value="House Loan">Complete</option>
                                 </select>
                                 <div class="help-block with-errors"></div>
-                            </div>
+                            </div> -->
   
                             <div class="mb-3">
-    <label for="exampleInputPack" class="form-label">Conform Pack Selected</label>
-    <input type="text" name="pack" class="form-control" id="exampleInputPack">
+    <label for="exampleInputPack" class="form-label">Pack Selected</label><br>
+    <input type="text"  class="form-control" value="Starter" id="exampleInputPack">
   </div>
   
 
@@ -133,7 +133,7 @@
   <div class="text-center">
   
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-  <button type="submit" name="signup" class="btn btn-primary col-3 my-3">SignUp</button>
+  <button type="submit" name="s" class="btn btn-primary col-3 my-3">SignUp</button>
   </div>
 </form>
       </div>

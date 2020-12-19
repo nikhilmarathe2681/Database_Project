@@ -1,5 +1,6 @@
 <?php
     require 'loginsystem/partials/dbconnect.php';
+    
     $id = $_GET['id'];
     $query = "select * from `requests` where `id` = '$id' ";
 
@@ -13,11 +14,37 @@
             $username = $fetch['username'];
             $password = $fetch['password'];
             $pack=$fetch['pack'];
-            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`, `pack`) VALUES ('$firstname', '$lastname', '$username', '$password','$pack');";
+            $email=$fetch['email'];
+            $query = "INSERT INTO `accounts` (`firstname`, `lastname`, `username`, `password`, `pack`, `email`) VALUES ('$firstname', '$lastname', '$username', '$password', '$pack', '$email');";
             
             $result=mysqli_query($con,$query);
             if($result){
                 echo "Account has been accepted.";
+                // require "PHPmailer/compr.php";
+
+                //     $mail= new PHPMailer(true);
+                //     $mail-> isSMTP(true);
+
+                //     $mail-> Host='smtp.gmail.com';
+                //     $mail-> Port=587;
+                //     $mail-> SMTPAuth=true;
+                //     $mail-> SMTPSecure='tls';
+                //     $mail->SMTPAuth=true;
+                //     $mail-> Username='rnrathod37@gmail.com';
+                //     $mail-> Password='Rnrathod@07';
+
+                //     $mail-> setFrom('rnrathod37@gmail.com');
+                //     $mail-> addAddress($email);
+                //     $mail-> isHTML(true);
+
+                //     $mail-> Subject='Account Request';
+                //     $mail-> Body='Hii '. $_POST['firstname'].' '.  $_POST['lastname'] .' Your Account Request Has been Accepted You can now Login';
+                //     $mail-> SMTPOptions= array('ssl'=>array(
+                    
+                //     'verify_peer'=>false,
+                //     'verify_peer_name'=>false,
+                //     'allow_self_signed'=>false
+                //     ));
                 
             }else{
                 echo "Unknown error occured. Please try again.";
