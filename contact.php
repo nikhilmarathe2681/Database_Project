@@ -23,11 +23,11 @@ require 'loginsystem/partials/dbconnect.php';
                 //     $mail-> SMTPAuth=true;
                 //     $mail-> SMTPSecure='tls';
                 //     $mail->SMTPAuth=true;
-                //     $mail-> Username='rnrathod37@gmail.com';
-                //     $mail-> Password='Rnrathod@07';
+                //     $mail-> Username='';
+                //     $mail-> Password=';
 
-                //     $mail-> setFrom('rnrathod37@gmail.com');
-                //     $mail-> addAddress('rnrathod37@gmail.com');
+                //     $mail-> setFrom('');
+                //     $mail-> addAddress('');
                 //     $mail-> isHTML(true);
 
                 //     $mail-> Subject='Contact Request';
