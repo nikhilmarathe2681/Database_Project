@@ -55,6 +55,12 @@
     <main role="main">
 
       <section class="text-center">
+      <div>
+      <h3><a href="uploads/starterUpload/index.php">starterUpload</h3><br>
+      <h3><a href="uploads/mediumUpload/index.php">mediumUpload</h3><br>
+      <h3><a href="uploads/completeUpload/index.php">completeUpload</h3><br>
+      
+      </div>
         <div class="container">
             <?php
             
