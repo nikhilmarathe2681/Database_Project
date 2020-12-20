@@ -1,4 +1,5 @@
 <?php
+ include '../uploads/starterUpload/filesLogic.php';
 
 session_start();
 
@@ -82,38 +83,27 @@ session_start();
     <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">sr no</th>
+      <th scope="col">Sr.No.</th>
       <th scope="col">File Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">click below to download </th>
+      <th scope="col">Size</th>
+      <th scope="col">Downloads</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+  <?php foreach ($files as $file): ?>
     <tr>
-      <th scope="row">1</th>
+    <td><?php echo $file['id']; ?></td>
+      <td><?php echo $file['name']; ?></td>
+      <td><?php echo floor($file['size'] / 1000) . ' KB'; ?></td>
+      <td><?php echo $file['downloads']; ?></td>
+      <td><a href="../uploads/starterUpload/downloads.php?file_id=<?php echo $file['id'] ?>">Download</a></td>
+      <!-- <th scope="row">1</th>
       <td>IT database</td>
       <td>PDF</td>
-      <td><a href="https://drive.google.com/file/d/1U-azBa35M5DKOeuoRDvwtMXRxQN6C7zJ/view?usp=sharing" target="_thapa">download now</a></td>
+      <td><a href="https://drive.google.com/file/d/1U-azBa35M5DKOeuoRDvwtMXRxQN6C7zJ/view?usp=sharing" target="_thapa">download now</a></td> -->
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>software database</td>
-      <td>PDF</td>
-      <<td><a href="https://drive.google.com/file/d/1U-azBa35M5DKOeuoRDvwtMXRxQN6C7zJ/view?usp=sharing" target="_thapa">download now</a></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>mobile database</td>
-      <td>PDF</td>
-      <td><a href="https://drive.google.com/file/d/1U-azBa35M5DKOeuoRDvwtMXRxQN6C7zJ/view?usp=sharing" target="_thapa">download now</a></td>
-    </tr>
-    <tr>
-      <th scope="row">4 </th>
-      <td>mobile database</td>
-      <td>PDF</td>
-      <td><a href="https://drive.google.com/file/d/1U-azBa35M5DKOeuoRDvwtMXRxQN6C7zJ/view?usp=sharing" target="_thapa">download now</a></td> 
-    </tr>
-    
+    <?php endforeach;?>
      
   </tbody>
 </table>
