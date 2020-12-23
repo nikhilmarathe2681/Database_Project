@@ -4,6 +4,7 @@
     if($_SESSION['login']!==true){
         header('location:index.php');
     }
+    
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +17,8 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    
   </head>
 
   <body>
@@ -56,22 +58,76 @@
 
       <section class="text-center">
       <div>
-      <h3><a href="uploads/starterUpload/index.php">starterUpload</h3><br>
-      <h3><a href="uploads/mediumUpload/index.php">mediumUpload</h3><br>
-      <h3><a href="uploads/completeUpload/index.php">completeUpload</h3><br>
+      <h3><a href="uploads/starterUpload/index.php">starterUpload</a></h3><br>
+      <h3><a href="uploads/mediumUpload/index.php">mediumUpload</a></h3><br>
+      <h3><a href="uploads/completeUpload/index.php">completeUpload</a></h3><br>
       
       </div>
         <div class="container">
+        <table id="myTable" class="table table-striped">
+  <thead>
+  <tr>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Pack Selected</th>
+      <th scope="col">Phone No.</th>
+      <th scope="col">opt1.</th>
+      <th scope="col">opt2.</th>
+      <th scope="col">opt3.</th>
+      
+
+
+    </tr>
+  </thead>
+  <tbody>
             <?php
             
                 $query = "select * from `requests`";
                 $result=mysqli_query($con,$query);
                 $num=mysqli_num_rows($result);
-
+                $a=1;
+                  
 
                 if($num>0){
+                  
                   while($fetch=mysqli_fetch_assoc($result)){
 
+                    include "details.php";
+
+                    
+  
+                   echo  '<tr>
+                  <td>'. $a.'</td>
+                    <td>'.$fetch['firstname'].'</td>
+                    <td>'.$fetch['lastname'].'</td>
+                    <td>'.$fetch['username'].'</td>
+                    <td>'.$fetch['pack'] .'</td>
+                    <td>'.$fetch['phone']  .'</td>
+
+                    <td><a href="accept.php?id='.$fetch['id'].'" class="btn btn-success my-2" name="accept">Accept</a></td>
+                    <td><a href="reject.php?id='.$fetch['id'].'" class="btn btn-danger my-2">Reject</a></td>
+                    <td><div class="d-grid gap-2 d-md-block">
+                    
+                    <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#detmodal">Details</button>
+                </div></td>
+
+
+                    
+                  </tr>';
+                  $a=$a+1;
+                }
+              }else{
+                  echo "No Pending Requests.";
+              }
+          ?>
+                  
+                  
+                </tbody>
+              </table>';
+              
+<!-- 
                     // echo '
                     // <div class=" row w-60">
                     // <div class="card text-white bg-dark mb-3 my-5 shadow-lg p-3 mb-5 bg-dark  rounded" style="max-width: 18rem;">
@@ -88,21 +144,21 @@
                     // </div>
                     // </div>';
 
-                    echo '<div class="card w-60 my-5 shadow-lg p-3 mb-5 bg-dark text-white rounded" style="border-radius:50px;">
-                    <div class="card-body">
-                      <h1 class="card-title">'. $fetch['firstname'] .' '. $fetch['lastname'] .'</h1>
-                      <h1 class="jumbotron-heading">'. $fetch['username'] .'</h1>
-                      <p class="card-text">I would Like to Create an Account In your Organisation</p>
-                      <h3 class="jumbotron-heading">Pack Selected :-'. $fetch['pack'] .'</h3>
-                      <h5 class="jumbotron-heading"> Email :-'. $fetch['email'] .'</h5>
-                      <h5 class="jumbotron-heading"> Contact :-'. $fetch['phone'] .'</h5>
-                      <h5 class="jumbotron-heading"> Address :-'. $fetch['address'] .'</h5>
-                      <p>
-                        <a href="accept.php?id='.$fetch['id'].'" class="btn btn-success my-2" name="accept">Accept</a>
-                        <a href="reject.php?id='.$fetch['id'].'" class="btn btn-danger my-2">Reject</a>
-                      </p>
-                    </div>
-                  </div>';
+                  //   echo '<div class="card w-60 my-5 shadow-lg p-3 mb-5 bg-dark text-white rounded" style="border-radius:50px;">
+                  //   <div class="card-body">
+                  //     <h1 class="card-title">'. $fetch['firstname'] .' '. $fetch['lastname'] .'</h1>
+                  //     <h1 class="jumbotron-heading">'. $fetch['username'] .'</h1>
+                  //     <p class="card-text">I would Like to Create an Account In your Organisation</p>
+                  //     <h3 class="jumbotron-heading">Pack Selected :-'. $fetch['pack'] .'</h3>
+                  //     <h5 class="jumbotron-heading"> Email :-'. $fetch['email'] .'</h5>
+                  //     <h5 class="jumbotron-heading"> Contact :-'. $fetch['phone'] .'</h5>
+                  //     <h5 class="jumbotron-heading"> Address :-'. $fetch['address'] .'</h5>
+                  //     <p>
+                  //       <a href="accept.php?id='.$fetch['id'].'" class="btn btn-success my-2" name="accept">Accept</a>
+                  //       <a href="reject.php?id='.$fetch['id'].'" class="btn btn-danger my-2">Reject</a>
+                  //     </p>
+                  //   </div>
+                  // </div>';
                         
                 
                     // echo <h1 class="jumbotron-heading">'. $fetch['firstname'] .' '. $fetch['lastname'] .'</h1>
@@ -113,13 +169,9 @@
                     //     <a href="accept.php?id='.$fetch['id'].'" class="btn btn-primary my-2" name="accept">Accept</a>
                     //     <a href="reject.php?id='.$fetch['id'].'" class="btn btn-secondary my-2">Reject</a>
                     //   </p>
-                    // <small><i></i></small>;
+                    // <small><i></i></small>; -->
             
-                    }
-                }else{
-                    echo "No Pending Requests.";
-                }
-            ?>
+                    
           
         </div>
           
@@ -133,6 +185,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" ></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+</script>
+
   </body>
 </html>
